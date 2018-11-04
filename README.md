@@ -1,6 +1,6 @@
 # dotfiles
 
-based on [https://github.com/freekmurze/dotfiles].  
+based on https://github.com/freekmurze/dotfiles, also re-added some osx defaults from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 It contains the installation of some basic tools, some handy aliases and functions. Backups of setting are done via [Mackup](https://github.com/lra/mackup).
 
