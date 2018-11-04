@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Hide "last login" line when starting a new terminal session
-touch $HOME/.hushlogin
+touch $HOME/.hushlogin 
 
 # Install zsh
 echo 'Install oh-my-zhs'
@@ -98,52 +98,97 @@ echo 'Install doctl'
 echo '-------------'
 brew install doctl
 
+echo 'Install rsync'
+echo '-------------'
+brew install rsync
+
+echo 'Install htop'
+echo '-------------'
+brew install htop
+
+echo 'Install watch'
+echo '-------------'
+brew install watch
+
+echo 'Install mc'
+echo '-------------'
+brew install mc
+
+echo 'Install tree'
+echo '-------------'
+brew install tree
+
+echo 'Install colordiff'
+echo '-------------'
+brew install colordiff
+
+echo 'Install curl'
+echo '-------------'
+brew install curl
+
+echo 'Install readline'
+echo '-------------'
+brew install readline
+
+echo 'Install curl'
+echo '-------------'
+brew install curl
+
 # echo 'Install brew-cask'
 # echo '-----------------'
 # brew tap caskroom/cask
 # brew install brew-cask
 
-# echo 'Install some nice quicklook plugins'
-# echo '-----------------------------------'
-# brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
+echo 'Install some nice quicklook plugins'
+echo '-----------------------------------'
+brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
 
 echo 'Install php'
 echo '-----------'
 # brew install php@7.0
 # brew install php@7.1
-# brew install php@7.2
+brew install php@7.2
+brew install php72-mcrypt
 
 echo 'Install imagemagick'
 echo '-------------------'
-# brew install imagemagick
+brew install imagemagick
+
+echo 'Install jpegoptim'
+echo '-------------------'
+brew install jpegoptim
+
+echo 'Install pngcrush'
+echo '-------------------'
+brew install pngcrush
 
 echo 'Install imagick'
 echo '---------------'
-# pecl install imagick
+pecl install imagick
 
 echo 'Install memcached'
 echo '-----------------'
-# pecl install memcached
+pecl install memcached
 
 echo 'Install xdebug'
 echo '--------------'
-# pecl install xdebug
+pecl install xdebug
 
 echo 'Install redis'
 echo '-------------'
-# pecl install redis
+pecl install redis
 
 echo 'Install laravel envoy'
 echo '---------------------'
-# composer global require "laravel/envoy=~1.0"
+composer global require "laravel/envoy=~1.0"
 
 echo 'Install php-cs-fixer'
 echo '--------------------'
-# composer global require friendsofphp/php-cs-fixer
+composer global require friendsofphp/php-cs-fixer
 
 echo 'Install phpunit-watcher'
 echo '---------------------'
-# composer global require spatie/phpunit-watcher
+composer global require spatie/phpunit-watcher
 
 echo 'Install mixed-content-scanner-cli'
 echo '---------------------------------'
@@ -156,7 +201,7 @@ echo '---------------------'
 
 echo 'Install mysql'
 echo '-------------'
-# brew install mysql@5.7
+brew install mysql@5.7
 # brew services start mysql@5.7
 
 echo 'Install yarn'
@@ -170,6 +215,10 @@ echo '-------------------'
 echo 'Install mackup'
 echo '--------------'
 brew install mackup
+
+echo 'Install gulp and bower (i know...)'
+echo '--------------'
+yarn add gulp
 
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
