@@ -54,10 +54,10 @@ for file in ~/.dotfiles-custom/shell/.{exports,aliases,functions,zshrc}; do
 done
 unset file
 
-# Load rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+# # Load rvm
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 . $HOME/.dotfiles/shell/z.sh
 
 # Alias hub to git
@@ -75,10 +75,10 @@ export PATH=$HOME/.dotfiles/bin:$PATH
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # Import ssh keys in keychain
-ssh-add -A 2>/dev/null;
+# ssh-add -A 2>/dev/null;
 
 # Setup xdebug
-export XDEBUG_CONFIG="idekey=VSCODE"
+# export XDEBUG_CONFIG="idekey=VSCODE"
 
 # Enable autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -86,6 +86,6 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Extra paths
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="/usr/local/opt/node@8/bin:$PATH"
+# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# export PATH="/usr/local/opt/node@8/bin:$PATH"
 

@@ -1,6 +1,6 @@
-# My personal dotfiles
+# dotfiles
 
-My personal dotfiles. Also used by nearly all other geeks at [spatie.be](http://spatie.be) and [the amazing Frederick Vanbrabant](https://twitter.com/maybeFrederick/status/912620087538016257).
+based on [https://github.com/freekmurze/dotfiles].  
 
 It contains the installation of some basic tools, some handy aliases and functions. Backups of setting are done via [Mackup](https://github.com/lra/mackup).
 
@@ -11,7 +11,3 @@ The bootstrap script can be run be cd-ing into the `.dotfiles` directory and per
 ```bash
 ./bootstrap
 ```
-
-Feel free to create an issue on this repo if you have any questions about them.
-
-![screenshot](https://freekmurze.github.io/dotfiles/screenshot.png)
