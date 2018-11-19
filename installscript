@@ -78,6 +78,10 @@ echo 'Install wget'
 echo '------------'
 brew install wget --overwrite
 
+echo 'Install fselect'
+echo '------------'
+brew install fselect
+
 echo 'Install httpie'
 echo '--------------'
 brew install httpie
