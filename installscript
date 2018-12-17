@@ -66,6 +66,10 @@ echo 'Install tldr'
 echo '------------'
 brew install tldr
 
+echo 'Install pv'
+echo '------------'
+brew install pv
+
 echo 'Install pkg-config'
 echo '------------------'
 brew install pkg-config
