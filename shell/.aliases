@@ -16,7 +16,7 @@ alias p="phpunit"
 alias pf="phpunit --filter "
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.public | pbcopy'
-alias cl = 'code ./'
+alias cl='code ./'
 
 # Tool replacements
 alias cat=bat
