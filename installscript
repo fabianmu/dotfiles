@@ -66,6 +66,10 @@ echo 'Install tldr'
 echo '------------'
 brew install tldr
 
+echo 'Install pv'
+echo '------------'
+brew install pv
+
 echo 'Install pkg-config'
 echo '------------------'
 brew install pkg-config
@@ -77,6 +81,10 @@ brew install prettyping
 echo 'Install wget'
 echo '------------'
 brew install wget --overwrite
+
+echo 'Install fselect'
+echo '------------'
+brew install fselect
 
 echo 'Install httpie'
 echo '--------------'
