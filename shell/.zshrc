@@ -15,11 +15,11 @@ DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git laravel4 laravel5 composer osx vagrant)
+plugins=(per-directory-history git osx)
 
 source $ZSH/oh-my-zsh.sh
 
-export=Users/$DEFAULT_USER/.rvm/gems/ruby-2.1.2/bin:$PATH
+# export=Users/$DEFAULT_USER/.rvm/gems/ruby-2.1.2/bin:$PATH
 #set numeric keys
 # 0 . Enter
 bindkey -s "^[Op" "0"
@@ -89,3 +89,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # export PATH="/usr/local/opt/node@8/bin:$PATH"
 
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

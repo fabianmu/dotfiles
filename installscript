@@ -70,6 +70,10 @@ echo 'Install pv'
 echo '------------'
 brew install pv
 
+echo 'Install jq'
+echo '------------'
+brew install jq
+
 echo 'Install pkg-config'
 echo '------------------'
 brew install pkg-config
