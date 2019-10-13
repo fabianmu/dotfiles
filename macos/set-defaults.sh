@@ -21,6 +21,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Menu bar: disable transparency
 #defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
+# set dark menu but keep others light
+defaults write -g NSRequiresAquaSystemAppearance -bool Yes
+
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
