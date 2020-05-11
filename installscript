@@ -159,8 +159,8 @@ echo 'Install php'
 echo '-----------'
 # brew install php@7.0
 # brew install php@7.1
-brew install php@7.2
-brew install php72-mcrypt
+brew install php@7.4
+brew install php74-mcrypt
 
 echo 'Install imagemagick'
 echo '-------------------'
@@ -235,6 +235,15 @@ yarn add gulp
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install zsh-autosuggestions
+
+echo 'Install pyenv'
+echo '---------------------------'
+brew install pyenv
+
+echo 'Install python 3.7.7'
+echo '---------------------------'
+pyenv install 3.7.7
+pyenv global 3.7.7
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
