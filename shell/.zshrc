@@ -92,3 +92,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+alias devcode='/Users/fabian/Downloads/sshcode runcloud@thirdwave.ddns.net --ssh-flags "-p 2222 -i .ssh/id_rsa" "~/code"'
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
