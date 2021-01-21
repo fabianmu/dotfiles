@@ -8,6 +8,7 @@ ZSH_CUSTOM=$HOME/.dotfiles/misc/oh-my-zsh-custom
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 
 # Hide username in prompt
 DEFAULT_USER=`whoami`
@@ -89,6 +90,10 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
+alias node14='export PATH="/usr/local/opt/node@14/bin:$PATH"'
+alias node15='export PATH="/usr/local/opt/node@15/bin:$PATH"'
 
 alias devcode='/Users/fabian/Downloads/sshcode runcloud@thirdwave.ddns.net --ssh-flags "-p 2222 -i .ssh/id_rsa" "~/code"'
 
