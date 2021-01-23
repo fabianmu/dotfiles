@@ -16,7 +16,7 @@ DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(per-directory-history git osx)
+plugins=(laravel5 per-directory-history git osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,7 +79,7 @@ export PATH=$HOME/.dotfiles/bin:$PATH
 # ssh-add -A 2>/dev/null;
 
 # Setup xdebug
-# export XDEBUG_CONFIG="idekey=VSCODE"
+export XDEBUG_CONFIG="idekey=VSCODE"
 
 # Enable autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -88,14 +88,14 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
 alias node14='export PATH="/usr/local/opt/node@14/bin:$PATH"'
 alias node15='export PATH="/usr/local/opt/node@15/bin:$PATH"'
-
-alias devcode='/Users/fabian/Downloads/sshcode runcloud@thirdwave.ddns.net --ssh-flags "-p 2222 -i .ssh/id_rsa" "~/code"'
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

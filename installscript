@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Hide "last login" line when starting a new terminal session
-touch $HOME/.hushlogin 
+touch $HOME/.hushlogin
 
 # Install zsh
-echo 'Install oh-my-zhs'
+echo 'Install oh-my-zsh'
 echo '-----------------'
 rm -rf $HOME/.oh-my-zsh
 curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
@@ -23,12 +23,9 @@ ln -s $HOME/.dotfiles/shell/.zshrc $HOME/.zshrc
 # rm $HOME/.vim
 # ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
-# Symlink yarn prefs
-rm $HOME/.yarnrc
-ln -s $HOME/.dotfiles/shell/.yarnrc $HOME/.yarnrc
 
 # Symlink the Mackup config
-ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
+# ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
 
 # Fix missing font characters (see https://github.com/robbyrussell/oh-my-zsh/issues/1906)
 cd ~/.oh-my-zsh/themes/
@@ -38,57 +35,45 @@ git checkout d6a36b1 agnoster.zsh-theme
 cd ~/.dotfiles/shell
 chmod +x z.sh
 
+echo 'Configure npm'
+echo '-------------'
+# Create a directory for global packages and tell npm where to store globally installed packages
+mkdir "${HOME}/.npm-packages"
+npm config set prefix "${HOME}/.npm-packages"
+
 echo 'Install composer'
 echo '----------------'
-cd ~/.dotfiles
+EXPECTED_COMPOSER_CHECKSUM="$(curl https://composer.github.io/installer.sig)"
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ACTUAL_COMPOSER_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+if [ "$EXPECTED_COMPOSER_CHECKSUM" != "$ACTUAL_COMPOSER_CHECKSUM" ]
+then
+    >&2 echo 'ERROR: Invalid installer checksum'
+    rm composer-setup.php
+    exit 1
+fi
 php composer-setup.php
-php -r "unlink('composer-setup.php');"
-echo 'move composer to /usr/local/bin/composer'
-mv -f composer.phar /usr/local/bin/composer
+rm composer-setup.php
+mv composer.phar /usr/local/bin/composer
 
 echo 'Install homebrew'
 echo '----------------'
 echo install homebrew
 sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 echo 'Install node'
 echo '-----------'
 brew install node@14
 brew link --overwrite node@14
 
-echo 'Install bat'
-echo '-----------'
-brew install bat
-
-echo 'Install tldr'
-echo '------------'
-brew install tldr
-
-echo 'Install pv'
-echo '------------'
-brew install pv
-
-echo 'Install jq'
-echo '------------'
-brew install jq
-
 echo 'Install pkg-config'
 echo '------------------'
 brew install pkg-config
 
-echo 'Install prettyping'
-echo '------------------'
-brew install prettyping
-
 echo 'Install wget'
 echo '------------'
 brew install wget --overwrite
-
-echo 'Install fselect'
-echo '------------'
-brew install fselect
 
 echo 'Install httpie'
 echo '--------------'
@@ -97,6 +82,10 @@ brew install httpie
 echo 'Install ncdu'
 echo '------------'
 brew install ncdu
+
+echo 'Install bat'
+echo '------------'
+brew install bat
 
 echo 'Install hub'
 echo '-----------'
@@ -110,69 +99,24 @@ echo 'Install doctl'
 echo '-------------'
 brew install doctl
 
-echo 'Install rsync'
-echo '-------------'
-brew install rsync
-
-echo 'Install htop'
-echo '-------------'
-brew install htop
-
-echo 'Install watch'
-echo '-------------'
-brew install watch
-
-echo 'Install mc'
-echo '-------------'
-brew install mc
-
-echo 'Install tree'
-echo '-------------'
-brew install tree
-
-echo 'Install colordiff'
-echo '-------------'
-brew install colordiff
-
-echo 'Install curl'
-echo '-------------'
-brew install curl
-
-echo 'Install readline'
-echo '-------------'
-brew install readline
-
-echo 'Install curl'
-echo '-------------'
-brew install curl
-
-# echo 'Install brew-cask'
-# echo '-----------------'
-# brew tap caskroom/cask
-# brew install brew-cask
+echo 'Install brew-cask'
+echo '-----------------'
+brew tap caskroom/cask
+brew install brew-cask
 
 echo 'Install some nice quicklook plugins'
 echo '-----------------------------------'
-brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
+brew install --cask --force qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip suspicious-package
 
 echo 'Install php'
 echo '-----------'
-# brew install php@7.0
-# brew install php@7.1
+brew install php@7.3
 brew install php@7.4
-brew install php74-mcrypt
+brew install php@8.0
 
 echo 'Install imagemagick'
 echo '-------------------'
 brew install imagemagick
-
-echo 'Install jpegoptim'
-echo '-------------------'
-brew install jpegoptim
-
-echo 'Install pngcrush'
-echo '-------------------'
-brew install pngcrush
 
 echo 'Install imagick'
 echo '---------------'
@@ -192,14 +136,10 @@ pecl install redis
 
 echo 'Install laravel envoy'
 echo '---------------------'
-composer global require "laravel/envoy=~1.0"
-
-echo 'Install php-cs-fixer'
-echo '--------------------'
-composer global require friendsofphp/php-cs-fixer
+composer global require "laravel/envoy=~2.0"
 
 echo 'Install phpunit-watcher'
-echo '---------------------'
+echo '-----------------------'
 composer global require spatie/phpunit-watcher
 
 echo 'Install mixed-content-scanner-cli'
@@ -208,13 +148,13 @@ composer global require spatie/mixed-content-scanner-cli
 
 echo 'Install laravel valet'
 echo '---------------------'
-# composer global require laravel/valet
-# valet install
+composer global require laravel/valet
+valet install
 
 echo 'Install mysql'
 echo '-------------'
-brew install mysql@5.7
-# brew services start mysql@5.7
+brew install mysql
+# brew services start mysql
 
 echo 'Install yarn'
 echo '------------'
@@ -222,28 +162,44 @@ brew install yarn
 
 echo 'Install ghostscript'
 echo '-------------------'
-# brew install ghostscript
-
-echo 'Install mackup'
-echo '--------------'
-brew install mackup
-
-echo 'Install gulp and bower (i know...)'
-echo '--------------'
-yarn add gulp
+brew install ghostscript
 
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install zsh-autosuggestions
 
-echo 'Install pyenv'
-echo '---------------------------'
-brew install pyenv
+echo 'Install rsync'
+echo '-------------'
+brew install rsync
 
-echo 'Install python 3.7.7'
-echo '---------------------------'
-PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.7.7
-pyenv global 3.7.7
+echo 'Install htop'
+echo '-------------'
+brew install htop
+
+echo 'Install curl'
+echo '-------------'
+brew install curl
+
+echo 'Install watch'
+echo '-------------'
+brew install watch
+
+echo 'Install mc'
+echo '-------------'
+brew install mc
+
+echo 'Install fselect'
+echo '------------'
+brew install fselect
+
+# echo 'Install pyenv'
+# echo '---------------------------'
+# brew install pyenv
+
+# echo 'Install python 3.7.7'
+# echo '---------------------------'
+# PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.7.7
+# pyenv global 3.7.7
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
@@ -255,7 +211,7 @@ echo '2. Install patched solarized theme included in ~/.dotfiles/misc'
 echo '++++++++++++++++++++++++++++++'
 echo 'Some optional tidbits'
 
-echo '1. Make sure dropbox is running first. If you have not backed up via Mackup yet, then run `mackup backup` to symlink preferences for a wide collection of apps to your dropbox. If you already had a backup via mackup run `mackup restore` You will find more info on Mackup here: https://github.com/lra/mackup.'
+# echo '1. Make sure dropbox is running first. If you have not backed up via Mackup yet, then run `mackup backup` to symlink preferences for a wide collection of apps to your dropbox. If you already had a backup via mackup run `mackup restore` You'\''ll find more info on Mackup here: https://github.com/lra/mackup.'
 echo '2. Set some sensible os x defaults by running: $HOME/.dotfiles/macos/set-defaults.sh'
 echo '3. Make a .dotfiles-custom/shell/.aliases for your personal commands'
 
