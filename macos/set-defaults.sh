@@ -317,8 +317,8 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
-# 14 days in cal
-defaults write com.apple.iCal n\ days\ of\ week 14
+# 21 days in cal
+defaults write com.apple.iCal n\ days\ of\ week 21
 
 ###############################################################################
 # Kill affected applications                                                  #

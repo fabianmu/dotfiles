@@ -76,7 +76,7 @@ export PATH=$HOME/.dotfiles/bin:$PATH
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # Import ssh keys in keychain
-# ssh-add -A 2>/dev/null;
+ssh-add -A 2>/dev/null;
 
 # Setup xdebug
 export XDEBUG_CONFIG="idekey=VSCODE"
