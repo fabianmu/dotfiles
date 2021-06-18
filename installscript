@@ -116,6 +116,7 @@ brew install --cask --force qlcolorcode qlstephen qlmarkdown quicklook-json qlpr
 echo 'Install php'
 echo '-----------'
 brew install php@7.0
+brew install php@7.2
 brew install php@7.3
 brew install php@7.4
 brew install php@8.0
